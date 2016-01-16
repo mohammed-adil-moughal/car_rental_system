@@ -1,0 +1,126 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+         
+        <script >
+             function show() {
+            var id = $("select[name=box1]").val();
+            $.ajax({
+                url: 'userviewcarajaxall.php',
+                type: 'POST',
+
+                data: {box1: id},
+                success: function(data) {
+                    $("#model").html(data);
+                }
+            });
+        }
+
+        </script>
+        
+<title>Sheikh motors Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="modular-business/layout/styles/layout.css" type="text/css" />
+<script type="text/javascript" src="modular-business/layout/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="modular-business/layout/scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="modular-business/layout/scripts/jquery.jcarousel.pack.js"></script>
+<script type="text/javascript" src="modular-business/layout/scripts/jquery.jcarousel.setup.js"></script>
+
+
+
+</head>
+    <body id="top" style="background-image: url(images/f2.jpg);	background-attachment: fixed;background-repeat: no-repeat;background-size: 100%;color: black">
+<div class="wrapper col1">
+  <div id="topbar">
+    <p>Tel: 0727768794</p>
+    <ul>
+      <li><a href="http://gmail.com"> Mail: Sheikhmotors@kenyasport.com</a></li>
+      <li><a href="http://twitter.com">Follow us on twitter @sheikmotors</a></li>
+      <li><a href="http://www.fb.com">Like us on facebook</a></li>
+   
+    </ul>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col2">
+  <div id="header">
+    <div class="fl_left">
+      <h1 style="font-family: fantasy"><a href="index.html">SHEIKH MOTORS</a></h1>
+      <p>The leading car-rental service</p>
+    </div>
+      <div class="fl_right"> <a href="#"><img src="modular-business/images/demo/logo.png"width="90%" alt="" /></a> </div>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col3">
+  <div id="topnav">
+    <ul>
+        <li class="active"><a href="modular-business/index.html">Homepage</a></li>
+<!--      <li><a href="pages/style-demo.html">client</a><span>Test Text Here</span></li>
+      <li><a href="pages/full-width.html">Advertise</a><span>Test Text Here</span></li>-->
+      <li><a href="Bookinglogin.php">LOGIN</a><span>Your account</span>
+        </li>
+      <li><a href="Bookingsignup.php">SIGNUP</a><span>Use our services</span>
+        
+      </li>
+ <li><a href="#">VEHICLES</a><span>company vehicles for hire</span>
+        <ul>
+            <li><a href="userviewallcars.php">ALL VEHICLES</a></li>
+            <li><a href="userviewavailablecars.php">AVAILABLE</a></li>
+          
+        </ul>
+      </li>
+
+<li class="last"><a href="Advertisements.php">ADVERTS</a><span>advertised vehicles</span></li>
+    </ul>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col4" style="margin-bottom: 0%;font-family: cursive;opacity: 0.50">
+    <div id="breadcrumb">
+    <ul>
+        <li><a href="modular-business/index.html">Home</a></li>
+      <li>&#187;</li>
+      <li><a href="">Vehicles</a></li>
+       <li>&#187;</li>
+       <li><a href="userviewallcars.php">All vehicles</a></li>
+      
+    </ul>
+    </div>
+    </div>
+<div class="wrapper col6" style="background-image: url(images/f2.jpg );	background-attachment: fixed;background-repeat: no-repeat;background-size: 100%;color: black;margin-bottom: 0%">
+    <h2 style="text-align: center;"></h2>
+  
+        <div class="container" style="text-align: center;" >
+            <div class="input-group" style="margin-left: 20%">
+        <div class="input-group-addon">Browse  by Category</div>
+ 
+<!--            <select name="box1"  onchange="show()" class="form-control" style="width: 20%;margin-left: 40%;margin-bottom: 0%;height: 5%">
+                <option disabled selected>Choose Category</option>
+            <option  value="all">All Vehicles</option>
+            <option value="heavy commercial">Heavy Commercial</option>
+            <option value="luxury">Luxury</option>
+            <option value="sport">Sport</option>
+            <option value="budget">Budget</option>
+        </select>-->
+             <?php
+     $link=  mysqli_connect("localhost", "root", "", "phpgang");
+      $sqlw = "select * FROM categories";
+         $resultw = $link->query($sqlw);
+         echo" <select name='box1'  onchange='show()' class='form-control' style='width: 60%;text-align: center'>";
+          echo '<option value="" style="text-align: center">Choose category</option>';
+          echo'<option value="all">All vehicles</option>';
+            for ($i = 0; $i = $resultw->fetch_assoc(); $i++) {
+
+                echo '<option style="color:black" value="' . $i["cat_id"] . '">' . $i["cat"] . '</option>';
+                   }
+             echo "</select>"
+    ?>
+       </div>
+            <p style="text-align: center">
+          
+              <div id="model"></div>
+            </div>
+   </div>

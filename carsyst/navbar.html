@@ -1,0 +1,87 @@
+ <head>
+        <link rel="stylesheet" href="admin_files/css3menu0/style.css" type="text/css" /><style type="text/css">._css3m{display:none}</style>
+
+</head>
+<body>
+
+       
+     
+<style type="text/css">
+    ul{
+        padding: 0;
+        list-style: none;
+        background: #f2f2f2;
+        text-align: center;
+    }
+    ul li{
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+    }
+    ul li a{
+        display: block;
+        padding: 8px 25px;
+        color: #333;
+        text-decoration: none;
+        text-align: center;
+    }
+    ul li a:hover{
+        color: #fff;
+        background: #939393;
+    }
+    ul li ul.dropdown{
+        min-width: 125px; /* Set width of the dropdown */
+        background: #f2f2f2;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+    }
+    ul li:hover ul.dropdown{
+        display: block;	/* Display the dropdown */
+    }
+    ul li ul.dropdown li{
+        display: block;
+    }
+</style>
+    <ul>
+        <li><a href="admin.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li>
+            <a href="#">Locations &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="addlocation.php"> Add</a></li>
+                <li><a href="viewlocation.php"> View</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Bookings &#9662;</a>
+            <ul class="dropdown">
+               
+
+		<li><a href="bconfirm.php">Pending</a></li>
+                <li><a href="bapproved.php">Approved</a></li>
+            </ul>
+        </li>
+       <li>
+            <a href="#">Vehicles &#9662;</a>
+            <ul class="dropdown">
+               
+                <li><a href="addcar.php">ADD</a></li>
+                <li><a href="viewcar.php">View</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Clients &#9662;</a>
+            <ul class="dropdown">
+               
+                <li><a href="addcar.php">ADD</a></li>
+                <li><a href="viewcar.php">View</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+
+	
